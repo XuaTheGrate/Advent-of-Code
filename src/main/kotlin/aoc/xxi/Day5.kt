@@ -1,6 +1,6 @@
-package aoc
+package aoc.xxi
 
-class Day5: Day() {
+class Day5: DayXXI() {
     override val dayNum = 5
 
     data class Vector2(val x1: Int, val x2: Int, val y1: Int, val y2: Int)
@@ -13,7 +13,7 @@ class Day5: Day() {
         Vector2(x1, x2, y1, y2)
     }
     
-    override fun solutionPart1() {
+    override fun solutionPart1(): Number {
         val counter = mutableMapOf<Pair<Int, Int>, Int>()
         for (point in geysers) {
             if (point.y1 == point.y2) {
@@ -27,7 +27,7 @@ class Day5: Day() {
             }
         }
         val overlap = counter.values.filter { it > 1 }
-        println("Day #$dayNum/1: ${overlap.size}")
+        return overlap.size
     }
 
     infix fun Int.rangeTo(other: Int): IntProgression {
@@ -35,7 +35,7 @@ class Day5: Day() {
         return this .. other
     }
     
-    override fun solutionPart2() {
+    override fun solutionPart2(): Number {
         val counter = mutableMapOf<Pair<Int, Int>, Int>()
         for (point in geysers) {
             if (point.y1 == point.y2) {
@@ -53,6 +53,6 @@ class Day5: Day() {
             }
         }
         val overlap = counter.values.filter { it > 1 }
-        println("Day #$dayNum/2: ${overlap.size}")
+        return overlap.size
     }
 }

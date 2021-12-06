@@ -4,6 +4,7 @@ import java.io.File
 
 abstract class Day {
     abstract val dayNum: Int
+    abstract val year: Int
     open val data: List<String> by lazy {
         rawData
             .trim()
@@ -11,9 +12,9 @@ abstract class Day {
             .map(String::trim)
     }
     open val rawData: String by lazy {
-        File("data/day$dayNum.txt").readText(Charsets.UTF_8)
+        File("data/$year/day$dayNum.txt").readText(Charsets.UTF_8)
     }
 
-    abstract fun solutionPart1()
-    abstract fun solutionPart2()
+    abstract fun solutionPart1(): Number
+    abstract fun solutionPart2(): Number
 }

@@ -1,13 +1,13 @@
-package aoc
+package aoc.xxi
 
-class Day3: Day() {
+class Day3: DayXXI() {
     override val dayNum = 3
 
     private fun mutableListOf(size: Int): MutableList<Int> = mutableListOf<Int>().apply {
         for (i in 0 until size) add(0)
     }
 
-    override fun solutionPart1() {
+    override fun solutionPart1(): Number {
         val bits = mutableListOf(data.first().length)
         for (line in data) {
             for ((idx, c) in line.withIndex()) {
@@ -20,7 +20,7 @@ class Day3: Day() {
             .joinToString(separator = "", transform = Int::toString)
             .toUInt(2)
         val epsilon = gamma.inv() and 0xfffu
-        println("Day #$dayNum/1: ${gamma * epsilon}")
+        return (gamma * epsilon).toInt()
     }
 
     private fun filterData(high: Char, low: Char): String {
@@ -39,9 +39,9 @@ class Day3: Day() {
         return dataCopy.first()
     }
 
-    override fun solutionPart2() {
+    override fun solutionPart2(): Number {
         val oxygen = filterData('0', '1').toInt(2)
         val scrubber = filterData('1', '0').toInt(2)
-        println("Day #$dayNum/2: ${oxygen * scrubber}")
+        return oxygen * scrubber
     }
 }

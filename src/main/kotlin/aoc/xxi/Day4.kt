@@ -1,8 +1,8 @@
-package aoc
+package aoc.xxi
 
 import kotlin.properties.Delegates
 
-class Day4: Day() {
+class Day4: DayXXI() {
     override val dayNum = 4
 
     data class BingoBoard(val rows: List<List<Int>>, val marked: MutableMap<Int, Boolean> = mutableMapOf()) {
@@ -64,7 +64,7 @@ class Day4: Day() {
         results
     }
     
-    override fun solutionPart1() {
+    override fun solutionPart1(): Number {
         var winning: Pair<Int, BingoBoard> by Delegates.notNull()
         base@for (num in numbers) {
             for (board in boards) {
@@ -84,10 +84,10 @@ class Day4: Day() {
                 if (idx !in winningBoard.marked) sum += item
             }
         }
-        println("Day #$dayNum/1: ${sum * winningNum}")
+        return sum * winningNum
     }
     
-    override fun solutionPart2() {
+    override fun solutionPart2(): Number {
         var winning: Pair<Int, BingoBoard> by Delegates.notNull()
         base@for (num in numbers) {
             val toRemove = mutableListOf<BingoBoard>()
@@ -115,6 +115,6 @@ class Day4: Day() {
                 if (idx !in winningBoard.marked) sum += item
             }
         }
-        println("Day #$dayNum/2: ${sum * winningNum}")
+        return sum * winningNum
     }
 }

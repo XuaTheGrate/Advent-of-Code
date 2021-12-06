@@ -1,9 +1,9 @@
-package aoc
+package aoc.xxi
 
-class Day1: Day() {
+class Day1: DayXXI() {
     override val dayNum = 1
 
-    override fun solutionPart1() {
+    override fun solutionPart1(): Number {
         var last: Int? = null
         var incr = 0
         for (line in data) {
@@ -12,10 +12,10 @@ class Day1: Day() {
                 incr++
             last = num
         }
-        println("Day #$dayNum/1: $incr")
+        return incr
     }
 
-    override fun solutionPart2() {
+    override fun solutionPart2(): Number {
         val data = data.map(String::toInt)
         var incr = 0
         var last: Int? = null
@@ -31,6 +31,6 @@ class Day1: Day() {
                 incr++
             last = sum3
         }
-        println("Day #$dayNum/2: $incr")
+        return incr
     }
 }

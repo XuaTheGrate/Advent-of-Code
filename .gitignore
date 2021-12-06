@@ -1,4 +1,4 @@
-data/*.txt
+data/**/*.txt
 .idea
 build
 .gradle

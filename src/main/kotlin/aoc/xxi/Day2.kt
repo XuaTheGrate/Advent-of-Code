@@ -1,9 +1,9 @@
-package aoc
+package aoc.xxi
 
-class Day2: Day() {
+class Day2: DayXXI() {
     override val dayNum = 2
 
-    override fun solutionPart1() {
+    override fun solutionPart1(): Number {
         var horiPos = 0
         var depth = 0
 
@@ -17,10 +17,10 @@ class Day2: Day() {
                 "down" -> depth += count
             }
         }
-        println("Day #$dayNum/1: ${horiPos * depth}")
+        return horiPos * depth
     }
 
-    override fun solutionPart2() {
+    override fun solutionPart2(): Number {
         var horiPos = 0
         var depth = 0
         var aim = 0
@@ -38,6 +38,6 @@ class Day2: Day() {
                 "down" -> aim += count
             }
         }
-        println("Day #$dayNum/2: ${horiPos * depth}")
+        return horiPos * depth
     }
 }
