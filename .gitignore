@@ -3,7 +3,6 @@ data/**/*.txt
 build
 .gradle
 src/test
-src/main/java
 src/main/resources
 *.py
 src/main/kotlin/aoc/SampleDay.kt

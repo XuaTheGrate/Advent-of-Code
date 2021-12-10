@@ -19,9 +19,8 @@ class Day7: DayXXI() {
         val fuels = mutableListOf<Int>()
         for (i in 0 .. data.maxOrNull()!!) {
             fuels.add(data.sumOf {
-                val a = (i - it).absoluteValue
-                val b = ((i - it).absoluteValue + 1)
-                (a * b) / 2
+                val abs = (i - it).absoluteValue
+                (abs * (abs + 1)) / 2
             })
         }
         return fuels.minOrNull()!!
